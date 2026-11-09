@@ -157,14 +157,14 @@ a{color:inherit;text-decoration:none}
 @keyframes eq{0%,100%{height:30%}50%{height:100%}}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-  text-align:center;padding:72px 20px 60px;overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  text-align:center;padding:64px 20px 48px;overflow:hidden;isolation:isolate}
 .hero-bg{position:absolute;inset:-3%;z-index:-2;background:var(--img) center 40%/cover no-repeat,linear-gradient(180deg,#8a8588,#c9a98c);
   animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(30,22,18,.25),rgba(30,22,18,0) 28%,rgba(30,22,18,0) 62%,rgba(24,18,15,.6))}
 @keyframes kenburns{from{transform:scale(1) translateY(0)}to{transform:scale(1.09) translateY(-1.5%)}}
-.hero-top .eyebrow{display:flex;align-items:center;justify-content:center;gap:18px;font-size:.9rem}
+.hero-top .eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;font-size:clamp(0.62rem,1.6vw,0.75rem);letter-spacing:0.28em}
 .hero-top .eyebrow::before,.hero-top .eyebrow::after{content:"";width:clamp(30px,10vw,110px);height:1px;background:var(--gold)}
 .names{font-family:var(--script);font-weight:400;font-size:clamp(3.4rem,13vw,8rem);line-height:1.05;margin:14px 0 10px;
   text-shadow:0 4px 30px rgba(0,0,0,.35)}
@@ -475,6 +475,124 @@ section.s::after{
   section.s::before{ opacity: 0.03; background-size: 48px 48px; }
 }
 
+/* ---------- Elegant Event Card ---------- */
+.event-card{
+  position: relative;
+  padding: 48px 32px 40px !important;
+  max-width: 520px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #fffefb 0%, #faf6ef 100%) !important;
+  border: 1px solid rgba(184,146,74,0.4) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 48px rgba(168,128,63,0.12) !important;
+  overflow: hidden;
+}
+.event-card::before{
+  display: none !important;
+}
+.event-corner{
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.event-corner-tl{
+  top: 14px; left: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M4 4 H30 M4 4 V30' stroke='%23b8924a' stroke-width='1.7' fill='none'/%3E%3Cpath d='M9 9 H24 M9 9 V24' stroke='%23c9a25f' stroke-width='1.1' fill='none'/%3E%3Ccircle cx='4' cy='4' r='2' fill='%23b8924a'/%3E%3Cpath d='M16 4 L16 14 L26 14' stroke='%23b8924a' stroke-width='1.1' fill='none'/%3E%3Cpath d='M4 16 L14 16 L14 26' stroke='%23b8924a' stroke-width='1.1' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.event-corner-br{
+  bottom: 14px; right: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M52 52 H26 M52 52 V26' stroke='%23b8924a' stroke-width='1.7' fill='none'/%3E%3Cpath d='M47 47 H32 M47 47 V32' stroke='%23c9a25f' stroke-width='1.1' fill='none'/%3E%3Ccircle cx='52' cy='52' r='2' fill='%23b8924a'/%3E%3Cpath d='M40 52 L40 42 L30 42' stroke='%23b8924a' stroke-width='1.1' fill='none'/%3E%3Cpath d='M52 40 L42 40 L42 30' stroke='%23b8924a' stroke-width='1.1' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.event-date{
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--g-deep, #a8803f);
+  margin-bottom: 6px;
+}
+.event-divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: var(--g-mid, #c9a25f);
+}
+.event-divider::before,
+.event-divider::after{
+  content: "";
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,146,74,0.55), transparent);
+}
+.event-divider span{
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+.event-card .ev h3{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 4.5vw, 2.1rem);
+  font-weight: 500;
+  color: var(--g-deep, #a8803f);
+  margin: 0 0 6px;
+}
+.event-card .when{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  font-weight: 600;
+  color: var(--ink, #4a3b2f);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.event-card .note{
+  font-family: 'Lato', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #7d6a58;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.event-venue{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.venue-icon{
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+.event-card .where{
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #6b5848;
+}
+.event-card .where b{
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--g-deep, #a8803f);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+.map-btn{
+  margin-top: 4px !important;
+  letter-spacing: 0.18em !important;
+  font-size: 0.72rem !important;
+  padding: 12px 28px !important;
+}
+@media(max-width:480px){
+  .event-card{ padding: 36px 20px 32px !important; }
+  .event-corner{ width: 36px; height: 36px; }
+}
+
 /* ---------- Countdown section (after hero) ---------- */
 .countdown-section{
   padding-top: 90px !important;
@@ -679,12 +797,23 @@ $('heroBg').style.setProperty('--img',`url('${C.heroImage||IMG.hero}')`);
 $('couplePhoto').style.backgroundImage = `url('${C.couplePhoto||IMG.couple}'), linear-gradient(180deg,#a89a96,#e0b98d)`;
 $('couplePhoto').style.backgroundPosition='center';
 $('eventList').innerHTML = `
-  <div class="card rv">
-    <div class="eyebrow">${C.dateLine}</div>
-    ${C.schedule.map(e=>`<div class="ev"><h3>${e.title}</h3><div class="when">${e.time}</div><p class="note">${e.note}</p></div>`).join('')}
-    <div class="orn">✦</div>
-    <div class="where"><b>${C.venue.name}</b><br>${C.venue.address}</div>
-    <a class="btn" href="${C.venue.map}" target="_blank" rel="noopener">View on Map</a>
+  <div class="card event-card rv">
+    <div class="event-corner event-corner-tl"></div>
+    <div class="event-corner event-corner-br"></div>
+    <div class="event-date">${C.dateLine}</div>
+    <div class="event-divider"><span>✦</span></div>
+    ${C.schedule.map(e=>`
+      <div class="ev">
+        <h3>${e.title}</h3>
+        <div class="when">${e.time}</div>
+        <p class="note">${e.note}</p>
+      </div>`).join('')}
+    <div class="event-divider"><span>✦</span></div>
+    <div class="event-venue">
+      <div class="venue-icon">📍</div>
+      <div class="where"><b>${C.venue.name}</b><br>${C.venue.address}</div>
+    </div>
+    <a class="btn map-btn" href="${C.venue.map}" target="_blank" rel="noopener">View on Map</a>
   </div>`;
 
 /* ---------- Countdown ---------- */
