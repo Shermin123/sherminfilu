@@ -18,7 +18,7 @@ const CONFIG = {
   groom: "Mohammed Shermin",
   bride: "Filu Thamanna",
   tagline: "A Blessed Beginning",
-  inviteLine: "Join us for our Nikah",
+  inviteLine: "Join us for our Nikkah",
 
   // Add your confirmed Nikah date and time here.
   dateTime: "2027-01-17T11:30:00",
@@ -85,12 +85,42 @@ a{color:inherit;text-decoration:none}
 #splash.gone{opacity:0;visibility:hidden}
 #splash .bismillah{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1.7;
   color:#9a713e;direction:rtl;margin-bottom:4px;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+#splash .splash-names{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1rem,3.2vw,1.35rem);
+  font-weight:500;
+  color:#4a3b2f;
+  letter-spacing:0.03em;
+  margin:6px 0 2px;
+  text-align:center;
+  line-height:1.4;
+}
+#splash .splash-names span{
+  font-family:'Great Vibes',cursive;
+  font-size:1.25em;
+  color:#a8803f;
+  padding:0 0.2em;
+}
+#splash .splash-nikkah{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.6rem,5.5vw,2.4rem);
+  font-weight:600;
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  color:#a8803f;
+  margin:4px 0 18px;
+  text-align:center;
+}
 #splash button{font-family:var(--sans);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;font-weight:500;color:#fffaf2;
   background:#8c6945;border:1px solid #8c6945;border-radius:40px;padding:17px 38px;cursor:pointer;transition:background .3s,border-color .3s,transform .3s;}
 #splash button:hover{background:#6f5137;border-color:#6f5137;transform:translateY(-2px)}
 #splash small{color:#806c59;letter-spacing:.16em;font-size:.68rem;line-height:1.8;text-transform:uppercase}
-#splash small:first-of-type{font-size:.72rem;letter-spacing:.2em;color:#6f5945}
-@media(max-width:480px){#splash{gap:25px;padding:22px}#splash button{padding:16px 30px;font-size:.7rem;letter-spacing:.17em}#splash small{font-size:.6rem;letter-spacing:.12em}}
+@media(max-width:480px){
+  #splash{gap:22px;padding:22px}
+  #splash button{padding:16px 30px;font-size:.7rem;letter-spacing:.17em}
+  #splash small{font-size:.6rem;letter-spacing:.12em}
+  #splash .splash-nikkah{letter-spacing:0.28em;margin-bottom:14px}
+}
 
 
 /* ---------- Top bar ---------- */
@@ -125,7 +155,8 @@ a{color:inherit;text-decoration:none}
 .countdown b{display:block;font-weight:300;font-size:clamp(2.2rem,8vw,3.6rem);line-height:1;font-variant-numeric:tabular-nums}
 .countdown span{display:block;margin-top:6px;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-2)}
 .explore{display:inline-flex;gap:12px;align-items:center;margin-top:8px;padding:15px 40px;border:1px solid var(--gold);border-radius:50px;
-  letter-spacing:.3em;font-size:.78rem;text-transform:uppercase;color:var(--gold-2);background:rgba(20,15,12,.25);backdrop-filter:blur(5px);transition:.4s}
+  letter-spacing:.3em;font-size:.78rem;text-transform:uppercase;color:var(--gold-2);background:rgba(20,15,12,.25);backdrop-filter:blur(5px);transition:.4s;
+  cursor:pointer;font-family:inherit;outline:none;-webkit-appearance:none;appearance:none}
 .explore:hover{background:rgba(217,185,138,.22);transform:translateY(-2px)}
 .explore svg{animation:bob 1.8s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(4px)}}
@@ -298,8 +329,47 @@ body{line-height:1.6}
 .lead,.card p.note,.person p,.card .where,.card .when,.wish p,.wish b,footer p{font-family:var(--body)}
 .quote{font-family:var(--head);font-style:italic;font-weight:400;font-size:1.2rem;line-height:1.75}
 .lead{font-size:1.05rem;font-weight:400;font-style:normal;line-height:1.7;color:#6b5848}
-.names{font-weight:400;font-size:clamp(2.4rem,11.5vw,5.6rem);line-height:1.15;white-space:nowrap}
-.names .amp{font-size:1.05em;padding:0 .1em}
+.names{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(1.25rem,4.2vw,2.1rem);
+  line-height:1.35;
+  white-space:normal;
+  text-wrap:balance;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:0.1em 0.18em;
+  letter-spacing:0.01em;
+}
+.names .amp{
+  font-family:'Great Vibes',cursive;
+  font-size:1.15em;
+  padding:0 0.12em;
+  color:var(--gold-2,#f3dcb4);
+}
+.invite{
+  margin-top:8px;
+}
+.invite .nikkah{
+  display:inline-block;
+  font-size:1.55em;
+  font-weight:600;
+  letter-spacing:0.26em;
+  color:var(--gold-2,#f3dcb4);
+  text-transform:uppercase;
+  text-shadow:0 1px 12px rgba(40,28,20,.4);
+}
+.hero-date{
+  margin-top:10px;
+  font-family:'Lato',sans-serif;
+  font-size:clamp(0.72rem,2.2vw,0.9rem);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(251,244,234,0.85);
+  text-shadow:0 1px 8px rgba(40,28,20,.45);
+}
 .s h2{font-size:clamp(2rem,8vw,3rem);line-height:1.2;text-wrap:balance}
 .person h3{font-size:2rem;font-weight:500}.card h3,.ev h3{font-size:1.65rem;font-weight:500;line-height:1.25}
 .person p{font-size:1.02rem;font-weight:400}.person p.sm{font-size:.92rem}
@@ -327,6 +397,46 @@ input,select,textarea{font-size:16px;font-weight:400}
   .explore{padding-left:calc(26px + .16em);padding-right:26px;font-size:.7rem}
   .card{padding:30px 16px}
   .s .eyebrow{line-height:1.8}
+}
+
+/* ---------- Countdown section (after hero) ---------- */
+.countdown-section{
+  padding-top: 90px !important;
+  padding-bottom: 90px !important;
+}
+.countdown-box{
+  display: inline-block;
+  margin: 10px auto 0;
+  padding: 28px 36px;
+  background: #fff;
+  border: 1px solid rgba(201,162,95,.45);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(168,128,63,.10);
+}
+.countdown-section .countdown{
+  gap: 0;
+}
+.countdown-section .countdown div{
+  padding: 0 clamp(18px,4vw,32px);
+  border-left: 1px solid rgba(201,162,95,.35);
+}
+.countdown-section .countdown div:first-child{
+  border-left: 0;
+}
+.countdown-section .countdown b{
+  color: var(--g-deep, #a8803f);
+  font-size: clamp(2rem,7vw,2.8rem);
+  font-weight: 500;
+}
+.countdown-section .countdown span{
+  color: var(--soft, #7d6a58);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+}
+@media(max-width:480px){
+  .countdown-box{padding:22px 16px}
+  .countdown-section .countdown div{padding:0 12px}
 }
 
 /* ---------- Bilingual story alignment fix ---------- */
@@ -358,7 +468,8 @@ input,select,textarea{font-size:16px;font-weight:400}
 <body class="locked">
 <div id="splash" role="dialog" aria-label="Open wedding invitation">
   <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-  <small>Mohammed Shermin &amp; Filu Thamanna</small>
+  <div class="splash-names">Mohammed Shermin <span>&</span> Filu Thamanna</div>
+  <div class="splash-nikkah">Nikkah</div>
   <button id="openInvitation" type="button">Open Invitation</button>
   <small>Tap to enter · Music will begin</small>
 </div>
@@ -373,21 +484,32 @@ input,select,textarea{font-size:16px;font-weight:400}
     <div class="eyebrow rv" id="tagline"></div>
     <h1 class="names rv d1"><span id="gName"></span><span class="amp">&amp;</span><span id="bName"></span></h1>
     <div class="invite rv d2" id="inviteLine"></div>
+    <div class="hero-date rv d2" id="heroDate"></div>
     <div class="orn rv d3">✦</div>
   </div>
   <div class="hero-bottom rv d3">
-    <div class="count-title">Countdown to our big day</div>
-    <div class="countdown">
-      <div><b id="cd">--</b><span>Days</span></div>
-      <div><b id="ch">--</b><span>Hours</span></div>
-      <div><b id="cm">--</b><span>Minutes</span></div>
-      <div><b id="cs">--</b><span>Seconds</span></div>
-    </div>
-    <div class="orn">✦</div>
-    <a class="explore" href="#couple">Explore Invitation
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+    <button type="button" class="explore" id="exploreBtn">Explore Invitation
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
   </div>
 </header>
+
+<!-- Countdown Section -->
+<section class="s countdown-section" id="countdown">
+  <div class="wrap">
+    <div class="eyebrow rv">The Big Day</div>
+    <h2 class="rv d1">Countdown</h2>
+    <div class="orn rv">✦</div>
+    <div class="countdown-box rv d2">
+      <div class="countdown">
+        <div><b id="cd">--</b><span>Days</span></div>
+        <div><b id="ch">--</b><span>Hours</span></div>
+        <div><b id="cm">--</b><span>Minutes</span></div>
+        <div><b id="cs">--</b><span>Seconds</span></div>
+      </div>
+    </div>
+    <p class="lead rv d3" style="margin-top:28px">Sunday, 17 January 2027 · 11:30 AM</p>
+  </div>
+</section>
 
 <section class="s" id="couple"><div class="wrap">
   <div class="eyebrow rv">With the blessings of our families</div>
@@ -454,11 +576,13 @@ const C = CONFIG;
 
 /* ---------- Fill content from CONFIG ---------- */
 document.title = `${C.groom} & ${C.bride} — Islamic Nikah Invitation`;
-$('gName').textContent = 'Shermin'; $('bName').textContent = 'Filu';
+$('gName').textContent = 'Mohammed Shermin';
+$('bName').textContent = 'Filu Thamanna';
 ['gName2','fG'].forEach(i=>$(i).textContent=C.groom);
 ['bName2','fB'].forEach(i=>$(i).textContent=C.bride);
 $('tagline').textContent = C.tagline;
-$('inviteLine').textContent = C.inviteLine;
+$('inviteLine').innerHTML = 'Join us for our <span class="nikkah">Nikkah</span>';
+$('heroDate').textContent = C.dateText + ' · ' + C.timeText;
 $('gLabel').textContent=C.groomFamily.label; $('gParents').textContent=C.groomFamily.parents; $('gPlace').textContent=C.groomFamily.place;
 $('bLabel').textContent=C.brideFamily.label; $('bParents').textContent=C.brideFamily.parents; $('bPlace').textContent=C.brideFamily.place;
 /* Format story with Bismillah on its own centered RTL line for proper alignment */
@@ -574,6 +698,15 @@ $('openInvitation').addEventListener('click',()=>{
   $('splash').classList.add('gone');
   document.body.classList.remove('locked');
 });
+
+/* Explore button → smooth scroll to countdown */
+$('exploreBtn').addEventListener('click',()=>{
+  const target = document.getElementById('countdown');
+  if(target){
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+
 $('music').addEventListener('pointerdown',e=>e.stopPropagation(),true);
 document.addEventListener('visibilitychange',()=>{ if(!playing) return; if(document.hidden){ if(C.musicFile) audio.pause(); if(ctx) ctx.suspend(); } else { if(C.musicFile) audio.play(); if(ctx) ctx.resume(); } });
 
