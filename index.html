@@ -160,17 +160,20 @@ a{color:inherit;text-decoration:none}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
   text-align:center;padding:64px 20px 48px;overflow:hidden;isolation:isolate}
 .hero-bg{position:absolute;inset:-3%;z-index:-2;background:var(--img) center 40%/cover no-repeat,linear-gradient(180deg,#8a8588,#c9a98c);
-  animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+  animation:kenburns 12s ease-in-out infinite alternate;will-change:transform;transform-origin:center center}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(30,22,18,.25),rgba(30,22,18,0) 28%,rgba(30,22,18,0) 62%,rgba(24,18,15,.6))}
-@keyframes kenburns{from{transform:scale(1) translateY(0)}to{transform:scale(1.09) translateY(-1.5%)}}
+@keyframes kenburns{
+  from{transform:scale(1) translateY(0)}
+  to{transform:scale(1.12) translateY(-2%)}
+}
 .hero-top .eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;font-size:clamp(0.62rem,1.6vw,0.75rem);letter-spacing:0.28em}
 .hero-top .eyebrow::before,.hero-top .eyebrow::after{content:"";width:clamp(30px,10vw,110px);height:1px;background:var(--gold)}
 .names{font-family:var(--script);font-weight:400;font-size:clamp(3.4rem,13vw,8rem);line-height:1.05;margin:14px 0 10px;
   text-shadow:0 4px 30px rgba(0,0,0,.35)}
 .names .amp{color:var(--gold);padding:0 .12em}
 .invite{letter-spacing:.38em;text-transform:uppercase;font-size:.8rem;color:var(--cream)}
-.hero-bottom{width:100%;max-width:640px}
+.hero-bottom{width:100%;max-width:640px;margin-top:auto;padding-bottom:8px}
 .count-title{letter-spacing:.4em;text-transform:uppercase;font-size:.8rem;color:var(--gold-2);margin-bottom:14px}
 .countdown{display:flex;justify-content:center}
 .countdown div{padding:0 clamp(14px,4vw,34px);text-align:center;border-left:1px solid rgba(243,220,180,.45)}
@@ -186,10 +189,16 @@ a{color:inherit;text-decoration:none}
 #petals{position:fixed;inset:0;pointer-events:none;z-index:40}
 
 @media (min-aspect-ratio:1/1){
-  .hero-bg{inset:0;background:#2a211d}
+  .hero-bg{inset:0;background:#2a211d;animation:none}
   .hero-bg::before,.hero-bg::after{content:"";position:absolute}
   .hero-bg::before{inset:-6%;background:var(--img) center/cover;filter:blur(26px) brightness(.65)}
-  .hero-bg::after{inset:0;background:var(--img) center/auto 100% no-repeat}
+  .hero-bg::after{
+    inset:-4%;
+    background:var(--img) center/auto 100% no-repeat;
+    animation:kenburns 12s ease-in-out infinite alternate;
+    will-change:transform;
+    transform-origin:center center;
+  }
   .hero-top,.hero-bottom{width:min(100%,calc(100vh*.667 - 30px))}
   .hero-top .eyebrow::before,.hero-top .eyebrow::after{display:none}
   .invite{letter-spacing:.26em;font-size:.72rem}
