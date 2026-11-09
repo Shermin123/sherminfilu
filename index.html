@@ -43,8 +43,8 @@ const CONFIG = {
   story: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\nWith the blessings of Allah Almighty and the duas of our families, we are delighted to invite you to witness and celebrate our Nikah. May Allah bless this union with love, mercy, happiness and barakah.",
 
   venue: {
-    name: "Nikah Ceremony Venue",
-    address: "Tap below to open the venue in Google Maps",
+    name: "Meruzila Convention Center",
+    address: "Poonoor – Narikkuni Rd, Kanjiramukku, Elettil, Kizhakkoth, Kerala",
     map: "https://share.google/UH2v5BnngSUHEgiBm"
   },
   dateLine: "Sunday, 17 January 2027 · 11:30 AM",
@@ -328,6 +328,31 @@ input,select,textarea{font-size:16px;font-weight:400}
   .card{padding:30px 16px}
   .s .eyebrow{line-height:1.8}
 }
+
+/* ---------- Bilingual story alignment fix ---------- */
+.quote{
+  white-space: normal;
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quote .bismillah{
+  display: block;
+  direction: rtl;
+  font-family: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  font-size: 1.55em;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--g-deep, #a8803f);
+  line-height: 1.8;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+.quote br + * ,
+.quote{
+  text-align: center;
+}
 </style>
 </head>
 <body class="locked">
@@ -436,7 +461,13 @@ $('tagline').textContent = C.tagline;
 $('inviteLine').textContent = C.inviteLine;
 $('gLabel').textContent=C.groomFamily.label; $('gParents').textContent=C.groomFamily.parents; $('gPlace').textContent=C.groomFamily.place;
 $('bLabel').textContent=C.brideFamily.label; $('bParents').textContent=C.brideFamily.parents; $('bPlace').textContent=C.brideFamily.place;
-$('storyText').textContent = C.story;
+/* Format story with Bismillah on its own centered RTL line for proper alignment */
+(function(){
+  const parts = C.story.split('\n');
+  const arabic = parts[0] || '';
+  const english = parts.slice(1).join(' ').trim() || C.story;
+  $('storyText').innerHTML = `<span class="bismillah" dir="rtl">${arabic}</span><br>${english}`;
+})();
 $('fDate').textContent = C.dateText; $('fMsg').textContent = C.footerMessage;
 $('heroBg').style.setProperty('--img',`url('${C.heroImage||IMG.hero}')`);
 $('couplePhoto').style.backgroundImage = `url('${C.couplePhoto||IMG.couple}'), linear-gradient(180deg,#a89a96,#e0b98d)`;
