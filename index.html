@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
 <title>Islamic Nikah Invitation</title>
 <meta name="theme-color" content="#fffaf0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="description" content="You are invited to the Nikah of Mohammed Shermin and Filu Thamanna.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,9 +72,9 @@ const CONFIG = {
   --serif:'Cormorant Garamond',Georgia,serif; --script:'Pinyon Script',cursive; --sans:'Jost',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--deep);color:var(--cream);font-family:var(--serif);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body.locked{overflow:hidden}
+html{scroll-behavior:smooth;height:100%;min-height:100dvh;min-height:100svh}
+body{background:var(--deep);color:var(--cream);font-family:var(--serif);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100dvh;min-height:100svh;height:100%}
+body.locked{overflow:hidden;height:100%;position:fixed;inset:0;width:100%}
 a{color:inherit;text-decoration:none}
 .eyebrow{font-family:var(--serif);letter-spacing:.42em;text-transform:uppercase;font-size:.85rem;color:var(--gold-2)}
 .orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px auto;max-width:320px;color:var(--gold)}
@@ -80,7 +82,9 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- Splash ---------- */
 #splash{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;
-  padding:28px;text-align:center;background:radial-gradient(circle at 50% 38%,#fffdf8 0%,#f8f0e3 68%,#f1e5d4 100%);
+  padding:28px;padding-top:max(28px,env(safe-area-inset-top));padding-bottom:max(28px,env(safe-area-inset-bottom));
+  width:100%;height:100%;min-height:100dvh;min-height:100svh;text-align:center;
+  background:radial-gradient(circle at 50% 38%,#fffdf8 0%,#f8f0e3 68%,#f1e5d4 100%);
   color:#49382c;transition:opacity 1.2s ease,visibility 1.2s}
 #splash::before{
   content:"";
@@ -126,23 +130,24 @@ a{color:inherit;text-decoration:none}
 }
 #splash .splash-nikkah{
   font-family:'Playfair Display',Georgia,serif;
-  font-size:clamp(1.6rem,5.5vw,2.4rem);
+  font-size:clamp(1.8rem,6.5vw,2.8rem);
   font-weight:600;
-  letter-spacing:0.35em;
+  letter-spacing:0.3em;
   text-transform:uppercase;
   color:#a8803f;
-  margin:4px 0 18px;
+  margin:8px 0 18px;
   text-align:center;
+  line-height:1.1;
 }
 #splash button{font-family:var(--sans);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;font-weight:500;color:#fffaf2;
   background:#8c6945;border:1px solid #8c6945;border-radius:40px;padding:17px 38px;cursor:pointer;transition:background .3s,border-color .3s,transform .3s;}
 #splash button:hover{background:#6f5137;border-color:#6f5137;transform:translateY(-2px)}
 #splash small{color:#806c59;letter-spacing:.16em;font-size:.68rem;line-height:1.8;text-transform:uppercase}
 @media(max-width:480px){
-  #splash{gap:22px;padding:22px}
+  #splash{gap:20px;padding:20px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom))}
   #splash button{padding:16px 30px;font-size:.7rem;letter-spacing:.17em}
   #splash small{font-size:.6rem;letter-spacing:.12em}
-  #splash .splash-nikkah{letter-spacing:0.28em;margin-bottom:14px}
+  #splash .splash-nikkah{font-size:clamp(1.7rem,8vw,2.4rem);letter-spacing:0.24em;margin:6px 0 14px}
 }
 
 
@@ -157,8 +162,8 @@ a{color:inherit;text-decoration:none}
 @keyframes eq{0%,100%{height:30%}50%{height:100%}}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
-  text-align:center;padding:64px 20px 48px;overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:100dvh;min-height:100svh;height:100dvh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  text-align:center;padding:64px 20px 48px;padding-top:max(64px,env(safe-area-inset-top));padding-bottom:max(48px,env(safe-area-inset-bottom));overflow:hidden;isolation:isolate}
 .hero-bg{position:absolute;inset:-3%;z-index:-2;background:var(--img) center 40%/cover no-repeat,linear-gradient(180deg,#8a8588,#c9a98c);
   animation:kenburns 12s ease-in-out infinite alternate;will-change:transform;transform-origin:center center}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
@@ -334,7 +339,7 @@ footer p{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-w
 .rings{top:max(18px,env(safe-area-inset-top,0px));left:max(18px,env(safe-area-inset-left,0px));width:48px}
 @media(max-width:480px){
   section.s{padding:78px 18px}
-  .hero{padding:96px 16px 44px}
+  .hero{padding:96px 16px 44px;padding-top:max(96px,env(safe-area-inset-top));padding-bottom:max(44px,env(safe-area-inset-bottom));min-height:100dvh;min-height:100svh;height:100dvh;height:100svh}
   .eyebrow{font-size:.68rem;letter-spacing:.26em}
   .hero-top .eyebrow{font-size:.7rem}
   .invite{font-size:.66rem;letter-spacing:.2em;line-height:1.9}
@@ -366,18 +371,19 @@ body{line-height:1.6}
 }
 .hero-label{
   font-family:'Lato',sans-serif;
-  font-size:clamp(0.58rem,1.5vw,0.7rem);
-  letter-spacing:0.28em;
+  font-size:clamp(0.65rem,1.7vw,0.78rem);
+  font-weight:400;
+  letter-spacing:0.34em;
   text-transform:uppercase;
   color:var(--gold-2,#f3dcb4);
-  margin:4px 0 4px;
+  margin:8px 0 6px;
   text-shadow:0 1px 10px rgba(40,28,20,.4);
 }
 .names{
-  font-family:'Playfair Display',Georgia,'Times New Roman',serif;
-  font-weight:500;
-  font-size:clamp(1.15rem,3.8vw,1.85rem);
-  line-height:1.15;
+  font-family:'Great Vibes',cursive;
+  font-weight:400;
+  font-size:clamp(2.5rem,9.5vw,4.4rem);
+  line-height:1.12;
   white-space:normal;
   text-wrap:balance;
   display:flex;
@@ -385,25 +391,25 @@ body{line-height:1.6}
   flex-wrap:nowrap;
   justify-content:center;
   align-items:center;
-  gap:0.06em;
+  gap:0.04em;
   letter-spacing:0.01em;
-  font-style:italic;
+  font-style:normal;
 }
 .names .amp-wrap{
   display:flex;
   align-items:center;
-  gap:8px;
-  margin:1px 0;
+  gap:10px;
+  margin:2px 0;
 }
 .names .amp-line{
   display:block;
-  width:16px;
+  width:18px;
   height:1px;
   background:rgba(243,220,180,0.65);
 }
 .names .amp{
   font-family:'Great Vibes',cursive;
-  font-size:0.7em;
+  font-size:0.72em;
   font-weight:400;
   font-style:normal;
   padding:0;
@@ -411,17 +417,50 @@ body{line-height:1.6}
   color:var(--gold-2,#f3dcb4);
 }
 .hero-date{
-  margin-top:8px;
+  margin-top:14px;
   font-family:'Lato',sans-serif;
-  font-size:clamp(0.62rem,1.7vw,0.75rem);
-  letter-spacing:0.18em;
+  font-size:clamp(0.7rem,1.9vw,0.85rem);
+  letter-spacing:0.2em;
   text-transform:uppercase;
-  color:rgba(251,244,234,0.88);
+  color:rgba(251,244,234,0.9);
   text-shadow:0 1px 8px rgba(40,28,20,.45);
 }
 .s h2{font-size:clamp(2rem,8vw,3rem);line-height:1.2;text-wrap:balance}
-.person h3{font-size:2rem;font-weight:500}.card h3,.ev h3{font-size:1.65rem;font-weight:500;line-height:1.25}
-.person p{font-size:1.02rem;font-weight:400}.person p.sm{font-size:.92rem}
+.person .eyebrow{
+  font-family:'Lato',sans-serif;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--g-deep,#a8803f);
+}
+.person h3{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2rem,5.5vw,2.8rem);
+  font-weight:400;
+  letter-spacing:0.01em;
+  line-height:1.15;
+  margin:10px 0 8px;
+  color:var(--ink,#4a3b2f);
+}
+.person p{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.15rem;
+  font-weight:500;
+  font-style:italic;
+  color:var(--soft,#7d6a58);
+  line-height:1.45;
+}
+.person p.sm{
+  font-family:'Lato',sans-serif;
+  font-size:0.88rem;
+  font-style:normal;
+  font-weight:400;
+  color:#9c8a76;
+  margin-top:6px;
+  letter-spacing:0.02em;
+}
+.card h3,.ev h3{font-size:1.65rem;font-weight:500;line-height:1.25}
 .card .when{font-size:1.1rem;font-weight:700;letter-spacing:.05em}
 .card .where{font-size:1.05rem;font-weight:400}.card .where b{font-weight:700}
 .card p.note{font-size:.98rem;font-weight:400;line-height:1.65}
@@ -446,6 +485,21 @@ input,select,textarea{font-size:16px;font-weight:400}
   .explore{padding-left:calc(26px + .16em);padding-right:26px;font-size:.7rem}
   .card{padding:30px 16px}
   .s .eyebrow{line-height:1.8}
+  .hero-label{
+    font-size:clamp(0.62rem,2.8vw,0.75rem);
+    letter-spacing:0.28em;
+    margin:6px 0 6px;
+  }
+  .hero .names{
+    font-size:clamp(2.2rem,11vw,3.4rem);
+    gap:0.04em;
+  }
+  .person h3{
+    font-size:clamp(1.85rem,7vw,2.4rem);
+  }
+  .person p{
+    font-size:1.08rem;
+  }
 }
 
 /* ---------- Islamic geometric touch (subtle pattern + frame) ---------- */
