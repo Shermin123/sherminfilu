@@ -37,7 +37,10 @@ const CONFIG = {
     parents: "Daughter of Faisal & Shareena",
     place: ""
   },
-  story: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\nWith the blessings of Allah Almighty and the duas of our families, we are delighted to invite you to witness and celebrate our Nikah. May Allah bless this union with love, mercy, happiness and barakah.",
+  story: "With the blessings of Allah Almighty and the heartfelt duas of our beloved families, we joyfully invite you to witness and celebrate our Nikah — as two hearts come together in faith, love and gratitude.\nWe pray that Allah blesses this union with love, mercy, happiness and endless barakah, and guides us to build a home filled with imaan, kindness and peace.",
+  ayahArabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
+  ayahMeaning: "“And among His Signs is that He created for you spouses from among yourselves, so that you may find tranquillity in them, and He placed between you affection and mercy. Indeed, in that are signs for a people who reflect.”",
+  ayahRef: "Surah Ar-Rūm — 30:21",
   venue: {
     name: "Meruzila Convention Center",
     address: "Poonoor – Narikkuni Rd, Kanjiramukku, Elettil, Kizhakkoth, Kerala",
@@ -687,6 +690,47 @@ section.s::after{
   margin-bottom: 14px;
   letter-spacing: 0.02em;
 }
+.quote .ayah-arabic{
+  display: block;
+  direction: rtl;
+  font-family: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  font-size: 1.55em;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--g-deep, #a8803f);
+  line-height: 2;
+  margin: 18px 0 12px;
+}
+.quote .ayah-meaning{
+  display: block;
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: var(--cream);
+  opacity: .92;
+  max-width: 560px;
+  margin: 0 auto 6px;
+}
+.quote .ayah-ref{
+  display: block;
+  font-family: var(--sans, 'Lato', sans-serif);
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold-2, #e6d5ae);
+  margin: 6px 0 18px;
+}
+.quote .ayah-divider{
+  display: block;
+  color: var(--gold, #c2a05e);
+  font-size: .9rem;
+  letter-spacing: .4em;
+  margin: 10px 0 16px;
+}
+.quote .invite-text{
+  display: block;
+  line-height: 1.75;
+}
 .quote br + * ,
 .quote{
   text-align: center;
@@ -1151,7 +1195,6 @@ h2.section-title, .section-title{
 }
 .countdown-photo{width:min(320px,78vw) !important;margin:28px auto 0 !important;padding:8px !important;background:#fffefb !important;border:1px solid rgba(184,146,74,.55) !important;border-radius:14px !important;}
 .countdown-photo img{width:100% !important;aspect-ratio:3/4 !important;object-fit:cover !important;object-position:center 28% !important;border-radius:8px !important;display:block !important;}
-
 /* ---------- Opening screen: refined type & sizing (final override) ---------- */
 #splash{gap:0 !important}
 #splash .bismillah{
@@ -1181,7 +1224,6 @@ h2.section-title, .section-title{
   #splash .splash-nikkah{font-size:clamp(2.2rem,12.5vw,3.1rem) !important;letter-spacing:.12em !important;text-indent:.12em}
   #splash .splash-names{font-size:clamp(1.25rem,5.8vw,1.55rem) !important}
 }
-
 /* ---------- Hero heading: refined type & sizing (final override) ---------- */
 .hero-top .eyebrow{
   font-family:'Cormorant Garamond',Georgia,serif !important;font-style:italic !important;font-weight:500 !important;
@@ -1207,7 +1249,6 @@ h2.section-title, .section-title{
   font-size:clamp(.72rem,3vw,.95rem) !important;letter-spacing:.26em !important;text-indent:.26em;
   text-transform:uppercase !important;color:#3f3025 !important;margin-top:clamp(14px,3vh,24px) !important;
   text-shadow:0 1px 0 rgba(255,255,255,.55) !important}
-
 /* ---------- Statement fonts (final override) ---------- */
 #splash .splash-nikkah{font-family:'Cinzel Decorative','Cinzel',serif !important;font-weight:700 !important;
   font-size:clamp(2rem,9.5vw,3.3rem) !important;letter-spacing:.1em !important;text-indent:.1em}
@@ -1223,7 +1264,6 @@ h2.section-title, .section-title{
 .hero .names .amp,.hero .amp{font-family:'Pinyon Script',cursive !important;font-size:.7em !important}
 .hero-date{font-family:'Italiana','Cinzel',serif !important;font-weight:400 !important;
   font-size:clamp(.95rem,4vw,1.25rem) !important;letter-spacing:.3em !important;text-indent:.3em;color:#4a3b2f !important}
-
 /* ---------- Clear, elegant, highly legible type (final override) ---------- */
 #splash .splash-nikkah{font-family:'Playfair Display',Georgia,serif !important;font-weight:700 !important;
   font-size:clamp(2.2rem,10vw,3.4rem) !important;letter-spacing:.16em !important;text-indent:.16em;color:#9a713e !important}
@@ -1243,7 +1283,6 @@ h2.section-title, .section-title{
   font-size:.65em !important;color:#9a713e !important;-webkit-text-fill-color:#9a713e !important}
 .hero-date{font-family:'Lato',Arial,sans-serif !important;font-weight:700 !important;
   font-size:clamp(.78rem,3.2vw,.95rem) !important;letter-spacing:.24em !important;text-indent:.24em;color:#33261b !important}
-
 /* ---------- Character + legibility (final override) ---------- */
 .hero .names{font-family:'Playfair Display',Georgia,serif !important;font-style:italic !important;font-weight:600 !important;
   font-size:clamp(2.2rem,10vw,3.3rem) !important;line-height:1.12 !important;letter-spacing:0 !important;color:#33261b !important;
@@ -1265,7 +1304,6 @@ h2.section-title, .section-title{
   font-size:clamp(1.5rem,6.6vw,2.1rem) !important;color:#33261b !important;-webkit-text-fill-color:#33261b !important}
 #splash .splash-names .splash-amp{font-family:'Great Vibes',cursive !important;font-style:normal !important;font-size:1.3em !important;
   color:#a8803f !important;-webkit-text-fill-color:#a8803f !important}
-
 /* ---------- Names use the same font as THE GROOM / THE BRIDE section (Tangerine) ---------- */
 .hero .names{font-family:'Tangerine','Great Vibes',cursive !important;font-style:normal !important;font-weight:700 !important;
   font-size:clamp(3.4rem,15vw,5rem) !important;line-height:1 !important;letter-spacing:0 !important;color:#8a6a35 !important;
@@ -1276,7 +1314,6 @@ h2.section-title, .section-title{
   font-size:clamp(2.6rem,11vw,3.6rem) !important;line-height:1.05 !important;color:#8a6a35 !important;-webkit-text-fill-color:#8a6a35 !important}
 #splash .splash-names .splash-amp{font-family:'Tangerine',cursive !important;font-weight:700 !important;font-size:.85em !important;
   color:#a8803f !important;-webkit-text-fill-color:#a8803f !important}
-
 /* ---------- Framed hero heading ---------- */
 .hero-top{position:relative;width:min(92%,440px) !important;margin:0 auto;
   padding:clamp(22px,4vh,34px) clamp(16px,5vw,30px) clamp(20px,3.6vh,30px);
@@ -1295,7 +1332,6 @@ h2.section-title, .section-title{
 .hero-top .eyebrow::before,.hero-top .eyebrow::after{display:none !important}
 .hero .names{font-size:clamp(3rem,13vw,4.4rem) !important}
 @media (min-aspect-ratio:1/1){.hero-top{width:min(92%,460px) !important}}
-
 /* ---------- Compact, clean frame: background stays visible ---------- */
 .hero-top{width:min(84%,340px) !important;padding:14px 14px 14px !important;background:transparent !important;
   -webkit-backdrop-filter:none !important;backdrop-filter:none !important;box-shadow:none !important;
@@ -1311,7 +1347,6 @@ h2.section-title, .section-title{
 .hero-date{font-size:clamp(.62rem,2.6vw,.76rem) !important;letter-spacing:.18em !important;text-indent:.18em;margin-top:6px !important}
 .hero-date::before{width:46px !important;margin-bottom:7px !important}
 @media (min-aspect-ratio:1/1){.hero-top{width:min(84%,340px) !important}}
-
 /* ---------- Couple photo: elegant arch frame ---------- */
 .couple-photo{position:relative !important;width:min(320px,78vw) !important;aspect-ratio:3/4.1 !important;
   margin:44px auto 40px !important;padding:12px !important;overflow:visible !important;
@@ -1325,7 +1360,6 @@ h2.section-title, .section-title{
 .couple-photo div{position:relative;width:100% !important;height:100% !important;overflow:hidden;
   border-radius:999px 999px 8px 8px !important;background-size:cover !important;background-position:center 35% !important;
   box-shadow:inset 0 0 0 1px rgba(184,146,74,.35)}
-
 /* ---------- Heading blends into the background (no box) ---------- */
 .hero-top{border:0 !important;box-shadow:none !important;background:transparent !important;border-radius:0 !important;
   width:min(92%,420px) !important;padding:6px 0 !important;margin-top:10px !important}
@@ -1338,19 +1372,16 @@ h2.section-title, .section-title{
 .hero-label{font-size:clamp(.72rem,3vw,.88rem) !important}
 .hero .names{font-size:clamp(2.7rem,11.5vw,3.6rem) !important}
 .hero-date{font-size:clamp(.68rem,2.9vw,.82rem) !important}
-
 /* ---------- Opening screen: smaller names that blend in ---------- */
 #splash .splash-names{font-size:clamp(1.9rem,7.6vw,2.4rem) !important;font-weight:700 !important;line-height:1 !important;
   color:#9a7a48 !important;-webkit-text-fill-color:#9a7a48 !important;opacity:.92;gap:0 !important;text-shadow:none !important}
 #splash .splash-names .splash-amp{font-size:.75em !important;color:#b8924a !important;-webkit-text-fill-color:#b8924a !important}
 #splash .bismillah{font-size:clamp(1.5rem,5.6vw,2.1rem) !important;margin-bottom:clamp(14px,3vh,26px) !important}
-
 /* ---------- New hero background: show the whole couple, blend top into cream ---------- */
 @media (max-aspect-ratio:1/1){
   .hero-bg{background:var(--img) center bottom/100% auto no-repeat,#f5efe3 !important;animation:none !important;inset:0 !important}
 }
 .hero::after{background:none !important}
-
 /* ---------- Opening screen: simpler layout, new frame ---------- */
 #splash{background:#faf5ea !important}
 #splash::before{background:none !important;opacity:1 !important;
@@ -1363,7 +1394,6 @@ h2.section-title, .section-title{
 #splash .splash-names{font-size:clamp(1.7rem,7vw,2.2rem) !important}
 #splash small{display:none !important}
 #splash button{margin-top:clamp(22px,4.5vh,36px) !important}
-
 /* ---------- Heading in a clean arch frame (matches opening page & photo) ---------- */
 .hero-top{position:relative;width:min(80%,310px) !important;margin:14px auto 0 !important;
   padding:clamp(56px,9vh,72px) 14px 26px !important;
@@ -1376,7 +1406,6 @@ h2.section-title, .section-title{
 .hero-top .eyebrow{font-size:clamp(1.4rem,6vw,1.75rem) !important}
 .hero .names{font-size:clamp(2.4rem,10.5vw,3.2rem) !important}
 @media (min-aspect-ratio:1/1){.hero-top{width:min(80%,310px) !important}}
-
 /* ---------- "The Couple" heading: clear and prominent ---------- */
 #couple{padding-top:clamp(70px,12vh,100px) !important}
 #couple .eyebrow{font-family:'Cinzel',Georgia,serif !important;font-weight:600 !important;font-size:clamp(.66rem,2.7vw,.8rem) !important;
@@ -1384,7 +1413,6 @@ h2.section-title, .section-title{
 #couple h2{font-family:'Tangerine','Great Vibes',cursive !important;font-weight:700 !important;
   font-size:clamp(3.6rem,17vw,5rem) !important;line-height:1 !important;color:#8a6a35 !important;
   -webkit-text-fill-color:#8a6a35 !important;margin:0 0 4px !important;opacity:1 !important}
-
 /* ---------- Hero heading: polished font set ---------- */
 .hero-top .eyebrow{font-family:'Great Vibes',cursive !important;font-style:normal !important;font-weight:400 !important;
   font-size:clamp(1.7rem,7.2vw,2.1rem) !important;letter-spacing:.01em !important;color:#6b4f27 !important;line-height:1.15}
@@ -1396,7 +1424,6 @@ h2.section-title, .section-title{
   color:#a8803f !important;-webkit-text-fill-color:#a8803f !important}
 .hero-date{font-family:'Cinzel',Georgia,serif !important;font-weight:600 !important;
   font-size:clamp(.66rem,2.8vw,.8rem) !important;letter-spacing:.24em !important;text-indent:.24em;color:#4a3b2f !important}
-
 /* ---------- Hero heading: simple two-font system, smaller ---------- */
 .hero-top .eyebrow{font-family:'Tangerine',cursive !important;font-weight:700 !important;font-style:normal !important;
   font-size:clamp(1.5rem,6vw,1.8rem) !important;letter-spacing:0 !important;color:#7a5a2c !important;line-height:1}
@@ -1408,7 +1435,6 @@ h2.section-title, .section-title{
   color:#a8803f !important;-webkit-text-fill-color:#a8803f !important}
 .hero-date{font-family:'Cinzel',serif !important;font-weight:500 !important;
   font-size:clamp(.58rem,2.4vw,.7rem) !important;letter-spacing:.24em !important;text-indent:.24em;color:#5e4322 !important}
-
 /* ---------- Arabic touch: mehrab (pointed) arch, Bismillah, geometric star ---------- */
 .hero-top{width:min(84%,330px) !important;padding:clamp(92px,13.5vh,108px) 16px 28px !important;border:0 !important;border-radius:0 !important;
   background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><path d='M0,100 V40 C0,24 30,14 50,0 C70,14 100,24 100,40 V100 Z' fill='rgba(252,248,240,.62)' stroke='%23a8803f' stroke-width='1.3' vector-effect='non-scaling-stroke'/><path d='M3,98 V41 C3,27 31,17 50,5 C69,17 97,27 97,41 V98 Z' fill='none' stroke='%23a8803f' stroke-opacity='.45' stroke-width='1' vector-effect='non-scaling-stroke'/></svg>") center/100% 100% no-repeat !important;box-shadow:none !important}
@@ -1421,7 +1447,6 @@ h2.section-title, .section-title{
   background:linear-gradient(90deg,transparent,#a8803f 30%,transparent 42%,transparent 58%,#a8803f 70%,transparent)}
 .hero-label::before,.hero-label::after{content:"" !important;width:7px;height:7px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M10 1 L12.2 7.8 L19 10 L12.2 12.2 L10 19 L7.8 12.2 L1 10 L7.8 7.8 Z' fill='none' stroke='%23a8803f' stroke-width='1.1'/><path d='M10 4.5 L15.5 10 L10 15.5 L4.5 10 Z' fill='%23a8803f' fill-opacity='.18' stroke='%23a8803f' stroke-width='.8'/></svg>") center/contain no-repeat !important;font-size:0 !important}
 @media (min-aspect-ratio:1/1){.hero-top{width:min(84%,330px) !important}}
-
 /* ---------- Tidy, even spacing inside the arch (flow layout, no absolute bits) ---------- */
 .hero-top{display:flex !important;flex-direction:column;align-items:center;text-align:center;
   padding:clamp(84px,12.5vh,100px) 18px 24px !important;width:min(84%,330px) !important}
@@ -1439,10 +1464,8 @@ h2.section-title, .section-title{
   font-size:clamp(.58rem,2.4vw,.7rem) !important;white-space:nowrap}
 .hero-date::before{margin:0 auto 10px !important}
 .hero-date::after{display:none !important}
-
 .hero-bism{margin-bottom:16px !important}
 .hero-top{padding-bottom:28px !important}
-
 /* ---------- Opening page: "Nikkah Invitation" only ---------- */
 #splash .splash-nikkah{order:1;font-size:clamp(2.3rem,11vw,3.4rem) !important;margin-bottom:6px !important;padding-bottom:0 !important}
 #splash .splash-nikkah::after{display:none !important}
@@ -1450,7 +1473,6 @@ h2.section-title, .section-title{
   letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;color:#6b4f27;display:flex;align-items:center;gap:14px}
 #splash .splash-invite::before,#splash .splash-invite::after{content:"";width:28px;height:1px;background:#b8924a}
 #splash button{order:3}
-
 /* ---------- Countdown: ultra-soft blend with background ---------- */
 .countdown-section .countdown-box{
   background:none !important;border:0 !important;box-shadow:none !important;
@@ -1628,16 +1650,13 @@ $('gName').textContent = 'Mohammed Shermin';
 $('bName').textContent = 'Filu Thamanna';
 ['gName2'].forEach(i=>{ try{ $(i).textContent=C.groom; }catch(_){} });
 ['bName2'].forEach(i=>{ try{ $(i).textContent=C.bride; }catch(_){} });
-
 $('heroDate').textContent = C.dateText;
 $('gLabel').textContent=C.groomFamily.label; $('gParents').textContent=C.groomFamily.parents; $('gPlace').textContent=C.groomFamily.place;
 $('bLabel').textContent=C.brideFamily.label; $('bParents').textContent=C.brideFamily.parents; $('bPlace').textContent=C.brideFamily.place;
-/* Format story with Bismillah on its own centered RTL line for proper alignment */
+/* Format story: Ayah + Meaning + Invitation (no Bismillah in this section) */
 (function(){
-  const parts = C.story.split('\n');
-  const arabic = parts[0] || '';
-  const english = parts.slice(1).join(' ').trim() || C.story;
-  $('storyText').innerHTML = `<span class="bismillah" dir="rtl">${arabic}</span><br>${english}`;
+  const english = C.story.split('\n').join('<br><br>').trim();
+  $('storyText').innerHTML = `<span class="ayah-arabic" dir="rtl" lang="ar">${C.ayahArabic || ''}</span><span class="ayah-meaning">${C.ayahMeaning || ''}</span><span class="ayah-ref">${C.ayahRef || ''}</span><span class="ayah-divider">✦ &nbsp; ✦ &nbsp; ✦</span><span class="invite-text">${english}</span>`;
 })();
 $('heroBg').style.setProperty('--img',`url('${C.heroImage||IMG.hero}')`);
 $('couplePhoto').style.backgroundImage = `url('${C.couplePhoto||IMG.couple}'), linear-gradient(180deg,#a89a96,#e0b98d)`;
@@ -1723,7 +1742,6 @@ function startSynth(){
     master.connect(lp);
     lp.connect(dry); dry.connect(ctx.destination);
     lp.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(ctx.destination);
-
     // Soft music-box style melody (different pattern)
     const melody = [
       659.25, 523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 523.25,
@@ -1732,10 +1750,8 @@ function startSynth(){
     // Light arpeggio bass
     const bass = [130.81, 196.00, 261.63, 196.00, 98.00, 146.83, 196.00, 146.83,
                   110.00, 164.81, 220.00, 164.81, 87.31, 130.81, 174.61, 130.81];
-
     let step = 0, t0 = ctx.currentTime + 0.15;
     const beat = 0.4;
-
     function note(f, t, dur, vol, type){
       if(!f) return;
       const o = ctx.createOscillator(), g = ctx.createGain();
@@ -1748,7 +1764,6 @@ function startSynth(){
       o.connect(g); g.connect(master);
       o.start(t); o.stop(t + dur + 0.05);
     }
-
     function schedule(){
       while(t0 < ctx.currentTime + 8){
         const barStart = t0;
