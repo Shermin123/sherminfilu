@@ -1451,18 +1451,74 @@ h2.section-title, .section-title{
 #splash .splash-invite::before,#splash .splash-invite::after{content:"";width:28px;height:1px;background:#b8924a}
 #splash button{order:3}
 
-/* ---------- Countdown: soft, smooth tiles ---------- */
-.countdown-section .countdown-box{background:none !important;border:0 !important;box-shadow:none !important;padding:6px 0 !important;border-radius:0 !important}
-.countdown-section .countdown{display:grid !important;grid-template-columns:repeat(4,1fr);gap:clamp(8px,2.6vw,14px);max-width:380px;margin:0 auto}
-.countdown-section .countdown div{position:relative;padding:clamp(16px,4.2vw,22px) 4px clamp(12px,3.4vw,16px) !important;border:1px solid rgba(184,146,74,.35) !important;
-  border-radius:999px 999px 18px 18px !important;background:linear-gradient(180deg,#fffdf8,#f7eedd) !important;
-  box-shadow:0 10px 24px rgba(150,110,50,.14),inset 0 1px 0 #fff;transition:transform .4s ease,box-shadow .4s ease}
-.countdown-section .countdown div:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(150,110,50,.2),inset 0 1px 0 #fff}
-.countdown-section .countdown b{font-family:'Cormorant Garamond',Georgia,serif !important;font-weight:600 !important;
-  font-size:clamp(1.8rem,8.4vw,2.5rem) !important;line-height:1 !important;color:#8a6a35 !important;-webkit-text-fill-color:#8a6a35 !important;
-  font-variant-numeric:lining-nums tabular-nums;text-shadow:none !important}
-.countdown-section .countdown span{margin-top:8px !important;font-family:'Lato',Arial,sans-serif !important;font-weight:400 !important;
-  font-size:clamp(.5rem,2.1vw,.62rem) !important;letter-spacing:.16em !important;text-indent:.16em;color:#806c59 !important}
+/* ---------- Countdown: ultra-soft blend with background ---------- */
+.countdown-section .countdown-box{
+  background:none !important;border:0 !important;box-shadow:none !important;
+  padding:4px 0 !important;border-radius:0 !important;
+}
+.countdown-section .countdown{
+  display:grid !important;grid-template-columns:repeat(4,1fr);
+  gap:0;max-width:420px;margin:0 auto;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  overflow:visible;
+}
+.countdown-section .countdown div{
+  position:relative;
+  padding:clamp(12px,3.5vw,18px) 10px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+.countdown-section .countdown div + div{
+  border-left:1px solid rgba(201,162,95,.15) !important;
+}
+.countdown-section .countdown div::before{ display:none !important; }
+.countdown-section .countdown div:hover{
+  background:transparent !important;
+  transform:none !important;
+  box-shadow:none !important;
+}
+.countdown-section .countdown b{
+  position:relative;z-index:1;
+  font-family:'Cormorant Garamond',Georgia,serif !important;
+  font-weight:400 !important;
+  font-size:clamp(2.2rem,10vw,3.1rem) !important;
+  line-height:1 !important;
+  color:#b89860 !important;
+  -webkit-text-fill-color:#b89860 !important;
+  font-variant-numeric:lining-nums tabular-nums;
+  text-shadow:none !important;
+  transition:transform .3s ease, color .3s ease;
+}
+.countdown-section .countdown span{
+  position:relative;z-index:1;
+  display:block;
+  margin-top:8px !important;
+  font-family:'Lato',Arial,sans-serif !important;
+  font-weight:400 !important;
+  font-size:clamp(.48rem,2vw,.58rem) !important;
+  letter-spacing:.24em !important;
+  text-indent:.24em;
+  text-transform:uppercase;
+  color:#b5a08a !important;
+}
+/* Soft number pop */
+.countdown-section .countdown b.tick{
+  animation:cd-tick .35s ease;
+}
+@keyframes cd-tick{
+  0%{ transform:scale(1); }
+  40%{ transform:scale(1.08); color:#c9a86e; }
+  100%{ transform:scale(1); }
+}
+@media(max-width:480px){
+  .countdown-section .countdown{ max-width:320px; }
+}
 </style>
 </head>
 <body class="locked">
@@ -1607,13 +1663,24 @@ $('eventList').innerHTML = `
   </div>`;
 /* ---------- Countdown ---------- */
 const target = new Date(C.dateTime).getTime();
+const prev = {d:'',h:'',m:'',s:''};
+function setVal(id, val, key){
+  const el = $(id);
+  if(prev[key] !== val){
+    el.textContent = val;
+    el.classList.remove('tick');
+    void el.offsetWidth; // reflow so animation restarts
+    el.classList.add('tick');
+    prev[key] = val;
+  }
+}
 function tick(){
   let d = Math.max(0, target - Date.now());
   const p = n => String(n).padStart(2,'0');
-  $('cd').textContent = p(Math.floor(d/864e5));
-  $('ch').textContent = p(Math.floor(d%864e5/36e5));
-  $('cm').textContent = p(Math.floor(d%36e5/6e4));
-  $('cs').textContent = p(Math.floor(d%6e4/1e3));
+  setVal('cd', p(Math.floor(d/864e5)), 'd');
+  setVal('ch', p(Math.floor(d%864e5/36e5)), 'h');
+  setVal('cm', p(Math.floor(d%36e5/6e4)), 'm');
+  setVal('cs', p(Math.floor(d%6e4/1e3)), 's');
 }
 tick(); setInterval(tick,1000);
 /* ---------- Scroll reveal ---------- */
@@ -1626,7 +1693,7 @@ function size(){ W=cv.width=innerWidth; H=cv.height=innerHeight; }
 addEventListener('resize',size); size();
 const N = innerWidth<700 ? 18 : 32;
 const mk = (init)=>({x:Math.random()*W,y:init?Math.random()*H:-20,s:3+Math.random()*6,vy:.4+Math.random()*.9,vx:-.3+Math.random()*.6,
-  r:Math.random()*6.28,vr:(Math.random()-.5)*.03,sw:Math.random()*6.28,a:.35+Math.random()*.55});
+  r:Math.random()*6.28,vr:(Math.random()-.5)*.03,sw:Math.random()*6.28,a:.55+Math.random()*.4});
 for(let i=0;i<N;i++) petals.push(mk(true));
 function draw(){
   cx.clearRect(0,0,W,H);
@@ -1634,7 +1701,7 @@ function draw(){
     p.sw+=.02; p.x+=p.vx+Math.sin(p.sw)*.6; p.y+=p.vy; p.r+=p.vr;
     if(p.y>H+20||p.x<-30||p.x>W+30) petals[i]=mk(false);
     cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.globalAlpha=p.a;
-    cx.fillStyle='#fff3e0'; cx.beginPath();
+    cx.fillStyle='#d4a06a'; cx.beginPath();
     cx.moveTo(0,-p.s); cx.bezierCurveTo(p.s*.8,-p.s*.5,p.s*.6,p.s*.7,0,p.s); cx.bezierCurveTo(-p.s*.6,p.s*.7,-p.s*.8,-p.s*.5,0,-p.s);
     cx.fill(); cx.restore();
   });
@@ -1647,36 +1714,63 @@ function startSynth(){
   if(!ctx){
     ctx = new (window.AudioContext||window.webkitAudioContext)();
     master = ctx.createGain(); master.gain.value=0;
-    const lp = ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=1800;
-    const dl = ctx.createDelay(1.5); dl.delayTime.value=.55;
-    const fb = ctx.createGain(); fb.gain.value=.38;
-    const wet = ctx.createGain(); wet.gain.value=.5;
-    master.connect(lp); lp.connect(ctx.destination);
+    // Soft music-box joyful style
+    const lp = ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=2800; lp.Q.value=0.4;
+    const dl = ctx.createDelay(1.4); dl.delayTime.value=0.36;
+    const fb = ctx.createGain(); fb.gain.value=0.22;
+    const wet = ctx.createGain(); wet.gain.value=0.3;
+    const dry = ctx.createGain(); dry.gain.value=0.86;
+    master.connect(lp);
+    lp.connect(dry); dry.connect(ctx.destination);
     lp.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(ctx.destination);
-    // C maj7 → A min7 → F maj7 → G sus
-    const chords=[[130.8,196,246.9,329.6],[110,164.8,196,261.6],[87.3,130.8,220,329.6],[98,146.8,196,293.7]];
-    const arp=[523.3,659.3,783.99,987.8,783.99,659.3,880,659.3];
-    let step=0, t0=ctx.currentTime+.1;
-    const bar=6.4;
-    function note(f,t,dur,vol,type){
-      const o=ctx.createOscillator(), g=ctx.createGain();
-      o.type=type; o.frequency.value=f;
-      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol,t+Math.min(1.2,dur*.3)); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
-      o.connect(g); g.connect(master); o.start(t); o.stop(t+dur+.1);
+
+    // Soft music-box style melody (different pattern)
+    const melody = [
+      659.25, 523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 523.25,
+      587.33, 659.25, 783.99, 880.00, 783.99, 659.25, 523.25, 392.00
+    ];
+    // Light arpeggio bass
+    const bass = [130.81, 196.00, 261.63, 196.00, 98.00, 146.83, 196.00, 146.83,
+                  110.00, 164.81, 220.00, 164.81, 87.31, 130.81, 174.61, 130.81];
+
+    let step = 0, t0 = ctx.currentTime + 0.15;
+    const beat = 0.4;
+
+    function note(f, t, dur, vol, type){
+      if(!f) return;
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(f, t);
+      // Soft pluck / music-box attack
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(vol, t + 0.025);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(master);
+      o.start(t); o.stop(t + dur + 0.05);
     }
+
     function schedule(){
-      while(t0 < ctx.currentTime+8){
-        const ch=chords[step%4];
-        ch.forEach((f,i)=>{ note(f,t0,bar+1.5,.07,'sine'); note(f*2.003,t0,bar+1,.025,'triangle'); });
-        for(let k=0;k<8;k++) note(arp[(k+step*3)%8]*(step%2?1:1), t0+k*(bar/8), 2.6, .05,'sine');
-        t0+=bar; step++;
+      while(t0 < ctx.currentTime + 8){
+        const barStart = t0;
+        // Soft arpeggiated bass
+        for(let i = 0; i < 8; i++){
+          note(bass[(step * 4 + i) % bass.length], barStart + i * beat, beat * 2.2, 0.04, 'sine');
+        }
+        // Music-box melody
+        for(let i = 0; i < 8; i++){
+          const m = melody[(step * 4 + i) % melody.length];
+          note(m, barStart + i * beat, beat * 1.6, 0.06, 'sine');
+          note(m * 2, barStart + i * beat, beat * 1.1, 0.016, 'triangle');
+        }
+        t0 += beat * 8;
+        step++;
       }
     }
-    schedule(); timer=setInterval(schedule,2000);
+    schedule(); timer = setInterval(schedule, 1600);
   }
   ctx.resume();
   master.gain.cancelScheduledValues(ctx.currentTime);
-  master.gain.linearRampToValueAtTime(.9,ctx.currentTime+2.5);
+  master.gain.linearRampToValueAtTime(0.58, ctx.currentTime + 1.8);
 }
 function stopSynth(){ if(ctx){ master.gain.cancelScheduledValues(ctx.currentTime); master.gain.linearRampToValueAtTime(0,ctx.currentTime+.8); setTimeout(()=>ctx.suspend(),900);} }
 function play(){
