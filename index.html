@@ -1556,6 +1556,53 @@ h2.section-title, .section-title{
 @keyframes cd-simple-fade{ from{ opacity:.35; } to{ opacity:1; } }
 @media(max-width:480px){ .countdown-section .countdown{ max-width:340px !important; } .countdown-section .countdown div{ padding:2px 10px !important; } .countdown-section .countdown b{ font-size:clamp(2rem,10vw,2.5rem) !important; } }
 </style>
+
+<style id="arabic-sections">
+/* Open Arabic-style frame (top + bottom ornament) and fonts: Celebrations, RSVP, Wishes only */
+#events .wrap,#rsvp .wrap,#wishes .wrap{position:relative;max-width:560px;padding:76px 22px 76px}
+#events .wrap::before,#rsvp .wrap::before,#wishes .wrap::before,#events .wrap::after,#rsvp .wrap::after,#wishes .wrap::after{content:"";position:absolute;left:50%;width:300px;max-width:90%;height:28px;transform:translateX(-50%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='28' viewBox='0 0 300 28'%3E%3Cdefs%3E%3ClinearGradient id='l' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23b88f45' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23b88f45'/%3E%3C/linearGradient%3E%3ClinearGradient id='r' x1='1' x2='0'%3E%3Cstop offset='0' stop-color='%23b88f45' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23b88f45'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='13.5' width='122' height='1.2' fill='url%28%23l%29'/%3E%3Crect x='178' y='13.5' width='122' height='1.2' fill='url%28%23r%29'/%3E%3Cg fill='none' stroke='%23b88f45' stroke-width='1.4'%3E%3Crect x='139' y='7' width='22' height='22' transform='translate%280 -4%29'/%3E%3Crect x='139' y='7' width='22' height='22' transform='rotate%2845 150 14%29 translate%280 -4%29'/%3E%3C/g%3E%3Ccircle cx='150' cy='14' r='2.4' fill='%23b88f45'/%3E%3Ccircle cx='128' cy='14' r='2' fill='%23b88f45'/%3E%3Ccircle cx='172' cy='14' r='2' fill='%23b88f45'/%3E%3C/svg%3E") center/contain no-repeat;pointer-events:none}
+#events .wrap::before,#rsvp .wrap::before,#wishes .wrap::before{top:20px}
+#events .wrap::after,#rsvp .wrap::after,#wishes .wrap::after{bottom:20px}
+#events h2,#rsvp h2,#wishes h2{font-family:'Cinzel',serif !important;font-weight:600 !important;color:#8c6a2c !important;letter-spacing:.08em !important;font-size:clamp(1.7rem,7vw,2.4rem) !important;line-height:1.25 !important}
+#events .eyebrow,#rsvp .eyebrow,#rsvp label,#wishes label{font-family:'Cinzel',serif !important;font-weight:500 !important;letter-spacing:.22em !important;color:#8c6a2c !important;font-size:.72rem !important}
+#events .lead,#rsvp .lead,#wishes .lead{font-family:'Cormorant Garamond',serif !important;font-style:italic !important;font-weight:500 !important;color:#6b5540 !important;font-size:1.25rem !important}
+#events .event-date{font-family:'Cormorant Garamond',serif !important;font-weight:600 !important;font-size:1.2rem !important;color:#6b5540 !important}
+#events .ev h3{font-family:'Cinzel',serif !important;font-weight:600 !important;color:#8c6a2c !important;font-size:1.6rem !important;letter-spacing:.05em !important}
+#events .when{font-family:'Cinzel',serif !important;font-weight:500 !important;letter-spacing:.3em !important;color:#b88f45 !important;font-size:.95rem !important}
+#events .note,#events .where{font-family:'Cormorant Garamond',serif !important;font-size:1.2rem !important;font-weight:500 !important;color:#4a3b2f !important}
+#events .where b{font-family:'Cinzel',serif !important;font-size:1.05rem !important;letter-spacing:.06em;color:#8c6a2c !important}
+#events .btn,#rsvp .btn,#wishes .btn{font-family:'Cinzel',serif !important;font-weight:600 !important;letter-spacing:.2em !important;font-size:.78rem !important;color:#2f2208 !important;border:0 !important;border-radius:0 !important;padding:15px 42px !important;
+  background:linear-gradient(135deg,#ecd291,#c39a4f) !important;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,14px 100%,0 50%)}
+#rsvp input,#rsvp select,#rsvp textarea,#wishes input,#wishes textarea{font-family:'Cormorant Garamond',Georgia,serif !important;font-size:1.2rem !important;font-weight:500 !important;border:0 !important;border-bottom:1.5px solid #b88f45 !important;border-radius:0 !important;background:rgba(255,255,255,.6) !important;padding:12px 12px !important}
+#rsvp input:focus,#rsvp select:focus,#rsvp textarea:focus,#wishes input:focus,#wishes textarea:focus{background:#fff !important;border-bottom-color:#8c6a2c !important}
+#rsvp .thanks{font-family:'Cormorant Garamond',serif !important;font-style:italic;color:#8c6a2c !important}
+#wishes .wish b{font-family:'Cinzel',serif !important;font-size:.95rem !important;letter-spacing:.08em;color:#8c6a2c !important}
+#wishes .wish p{font-family:'Cormorant Garamond',serif !important;font-size:1.2rem !important;color:#4a3b2f !important}
+</style>
+<style id="wishes-upgrade">
+#wishes h2{font-family:'Great Vibes',cursive !important;font-weight:400 !important;letter-spacing:0 !important;font-size:clamp(2.8rem,11vw,3.9rem) !important;color:#a8803f !important;line-height:1.1 !important}
+#wishes .lead{font-size:1.3rem !important}
+#wishes #wishForm{position:relative;margin-top:38px !important;padding:38px 26px 30px !important;background:#fffdf6;border:1px solid #b88f45;box-shadow:0 12px 32px rgba(140,106,44,.14),inset 0 0 0 6px #fffdf6,inset 0 0 0 7px rgba(184,143,69,.4)}
+#wishes #wishForm::before{content:"✦";position:absolute;top:-15px;left:50%;width:30px;height:30px;transform:translateX(-50%) rotate(45deg);background:#fffdf6;border:1px solid #b88f45;color:#b88f45;font-size:13px;line-height:28px;text-align:center}
+#wishes #wishForm input,#wishes #wishForm textarea{background:#faf3e4 !important}
+#wishes .wishes{max-width:620px;margin:38px auto 0 !important;gap:20px !important;max-height:500px;overflow-y:auto;padding:6px 6px 10px}
+#wishes .wishes::-webkit-scrollbar{width:5px}#wishes .wishes::-webkit-scrollbar-thumb{background:#c9a25f;border-radius:4px}
+#wishes .wish{position:relative;display:flex;flex-direction:column;padding:30px 26px 22px 62px !important;background:linear-gradient(135deg,#fffdf6,#f6ecd8) !important;border:1px solid rgba(184,143,69,.6) !important;border-radius:0 !important;box-shadow:0 8px 22px rgba(140,106,44,.12) !important}
+#wishes .wish::before{content:"\201C";position:absolute;left:18px;top:2px;font-family:'Cormorant Garamond',serif;font-size:5.2rem;line-height:1;color:#c9a25f}
+#wishes .wish::after{content:"";position:absolute;inset:5px;border:1px solid rgba(184,143,69,.25);pointer-events:none}
+#wishes .wish p{order:1;font-family:'Cormorant Garamond',serif !important;font-style:italic;font-weight:500 !important;font-size:1.35rem !important;line-height:1.5;color:#4a3b2f !important}
+#wishes .wish b{order:2;margin-top:12px;text-align:right;font-family:'Great Vibes',cursive !important;font-weight:400 !important;font-size:1.9rem !important;letter-spacing:0 !important;color:#a8803f !important}
+#wishes .wish b::before{content:"✦ ";font-family:'Cormorant Garamond',serif;font-size:.9rem;vertical-align:middle}
+</style>
+<style id="countdown-arabic">
+#countdown .countdown-box{max-width:480px !important}
+#countdown .countdown{display:grid !important;grid-template-columns:repeat(4,1fr) !important;gap:8px !important;max-width:480px !important;margin:10px auto 0 !important}
+#countdown .countdown div,#countdown .countdown div+div{position:relative !important;aspect-ratio:1;display:flex !important;flex-direction:column;align-items:center;justify-content:center;padding:0 !important;border:0 !important;background:#b88f45 !important;clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%);transition:transform .3s}
+#countdown .countdown div::before{content:"" !important;display:block !important;position:absolute;inset:1.6px;background:linear-gradient(160deg,#fffdf6,#f4e8cf);clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%)}
+#countdown .countdown div::after{content:"" !important;display:block !important;position:absolute;inset:7px;border-radius:0;background:none;box-shadow:none;clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%);border:0;outline:1px solid rgba(184,143,69,.35);outline-offset:-1px}
+#countdown .countdown b{position:relative;z-index:1;font-family:'Cinzel',serif !important;font-weight:600 !important;font-size:clamp(1.5rem,7.4vw,2.3rem) !important;color:#8c6a2c !important;-webkit-text-fill-color:#8c6a2c !important;line-height:1 !important}
+#countdown .countdown span{position:relative;z-index:1;margin-top:7px !important;font-family:'Cinzel',serif !important;font-weight:500 !important;font-size:.52rem !important;letter-spacing:.14em !important;text-indent:.14em !important;color:#a8803f !important}
+</style>
 </head>
 <body class="locked">
 <div id="splash" role="dialog" aria-label="Open wedding invitation">
